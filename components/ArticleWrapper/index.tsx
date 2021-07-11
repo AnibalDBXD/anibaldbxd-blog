@@ -5,8 +5,6 @@ import ReactDOMServer from 'react-dom/server';
 import { ReactNode } from 'react';
 import user from '../../config/user';
 
-import styles from './styles.module.scss';
-
 interface IProps {
   title: ReactNode;
   children: ReactNode;
@@ -27,7 +25,7 @@ function ArticleWrapper({ title, children }: IProps): JSX.Element {
         <section>{children}</section>
       </article>
       <Link href="/">
-        <a className={styles['go-back']}>Volver</a>
+        <a>Volver</a>
       </Link>
     </>
   );

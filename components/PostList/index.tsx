@@ -3,8 +3,6 @@ import Title from '@9gustin/react-notion-render/dist/types/Title';
 import Link from 'next/link';
 import dateToString from '../../utils/dateToString';
 
-import styles from './styles.module.scss';
-
 interface IProps {
   posts: {
     id: string;
@@ -15,18 +13,18 @@ interface IProps {
 
 function PostList({ posts }: IProps): JSX.Element {
   return (
-    <ul className={styles.posts}>
+    <ul>
       {posts.map((post) => (
         <li key={post.id}>
           <Link href={`/${post.id}`}>
-            <a className={styles.post}>
-              <h3 className={styles.title}>
+            <a>
+              <h3>
                 <Link href={`/${post.id}`}>
                   {renderTitle(post.properties.Name)}
                 </Link>
               </h3>
 
-              <p className={styles.subtitle}>
+              <p>
                 {dateToString(post.lastEditedTime)}
               </p>
             </a>

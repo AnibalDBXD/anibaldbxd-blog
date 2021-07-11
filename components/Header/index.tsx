@@ -5,20 +5,17 @@ import PATHS from '../../config/paths';
 
 import ThemeToggler from '../ThemeToggler';
 
-import styles from './styles.module.css';
-
 interface IProps {
   title: ReactNode;
-  className?: string;
   description?: ReactNode;
 }
 
-function Header({ className, title, description }: IProps): JSX.Element {
+function Header({ title, description }: IProps): JSX.Element {
   return (
-    <header className={`${styles.header} ${className || ''}`}>
+    <header>
       <h1>
         <Link href={PATHS.home}>
-          <a className={styles.title}>{title}</a>
+          <a>{title}</a>
         </Link>
       </h1>
       <ThemeToggler />
