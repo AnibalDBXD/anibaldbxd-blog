@@ -15,8 +15,6 @@
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@notionhq/client": "^0.1.8",
-    "@types/node": "^16.3.0",
-    "@types/react": "^17.0.14",
     "framer-motion": "^4.1.17",
     "next": "10.2.3",
     "react": "17.x",
@@ -25,6 +23,8 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
+    "@types/node": "^16.3.0",
+    "@types/react": "^17.0.14",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
     "eslint": "^7.30.0",
