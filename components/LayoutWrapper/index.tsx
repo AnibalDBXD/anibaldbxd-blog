@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import { useEffect } from 'react';
 import Head from 'next/head';
 
-import { withRouter } from "next/router";
-import Header from "../Header";
-import { PATHS } from "../../config/paths";
+import { withRouter } from 'next/router';
+import Header from '../Header';
+import PATHS from '../../config/paths';
 
-import styles from "./styles.module.css";
-import user from "../../config/user";
+import styles from './styles.module.css';
+import user from '../../config/user';
 
-function LayoutWrapper({ router, children }) {
+function LayoutWrapper({ router, children }): JSX.Element {
   useEffect(() => {
     if (user.theme) document.body.classList.add(`${user.theme}-theme`);
   }, []);
@@ -16,15 +16,18 @@ function LayoutWrapper({ router, children }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <title>{user.mainTitle}{user.pageTitle}</title>
+        <link href="/favicon.ico" rel="icon" />
+        <title>
+          {user.mainTitle}
+          {user.pageTitle}
+        </title>
       </Head>
       <Header
-        title={user.title}
-        className={styles["adjust-content"]}
+        className={styles['adjust-content']}
         description={router.pathname === PATHS.home ? user.description : undefined}
+        title={user.title}
       />
-      <main className={styles["adjust-content"]}>{children}</main>
+      <main className={styles['adjust-content']}>{children}</main>
     </>
   );
 }

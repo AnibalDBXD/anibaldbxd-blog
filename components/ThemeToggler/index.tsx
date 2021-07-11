@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { THEMES, THEME_KEY, THEMES_LABELS } from './constants';
 import isNavigatorDarkTheme from '../../utils/isNavigatorDarkTheme';
 
 import styles from './styles.module.scss';
 
-function ThemeToggler() {
-  const [selectedTheme, setTheme] = useState();
+function ThemeToggler(): JSX.Element {
+  const [selectedTheme, setTheme] = useState('light');
 
-  const handleChangeTheme = () => setTheme(THEMES[Object.keys(THEMES).find(theme => THEMES[theme] !== selectedTheme)])
+  const handleChangeTheme = (): void =>
+    setTheme(THEMES[Object.keys(THEMES).find((theme) => THEMES[theme] !== selectedTheme)]);
 
-  const actualTheme = () => localStorage.getItem(THEME_KEY);
+  const actualTheme = (): string => localStorage.getItem(THEME_KEY);
 
   useEffect(() => {
     setTheme(actualTheme() || (isNavigatorDarkTheme() ? THEMES.DARK : THEMES.LIGHT));
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (selectedTheme) {
@@ -24,13 +25,13 @@ function ThemeToggler() {
         document.body.classList.remove(THEMES.DARK);
       }
     }
-  }, [selectedTheme])
+  }, [selectedTheme]);
 
   return (
-    <button onClick={handleChangeTheme} className={styles.button}>
+    <button className={styles.button} onClick={handleChangeTheme} type="button">
       {THEMES_LABELS[selectedTheme]}
     </button>
-  )
+  );
 }
 
 export default ThemeToggler;

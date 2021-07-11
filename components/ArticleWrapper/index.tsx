@@ -1,18 +1,18 @@
-import React from "react";
-import Link from "next/link";
-import Head from "next/head";
-import ReactDOMServer from "react-dom/server";
+import Link from 'next/link';
+import Head from 'next/head';
+import ReactDOMServer from 'react-dom/server';
 
-import user from "../../config/user";
+import { ReactNode } from 'react';
+import user from '../../config/user';
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
-interface Props {
-  title: React.ReactNode;
-  children: React.ReactNode;
+interface IProps {
+  title: ReactNode;
+  children: ReactNode;
 }
 
-function ArticleWrapper({ title, children }: Props) {
+function ArticleWrapper({ title, children }: IProps): JSX.Element {
   return (
     <>
       <Head>
@@ -27,7 +27,7 @@ function ArticleWrapper({ title, children }: Props) {
         <section>{children}</section>
       </article>
       <Link href="/">
-        <a className={styles["go-back"]}>Volver</a>
+        <a className={styles['go-back']}>Volver</a>
       </Link>
     </>
   );

@@ -1,20 +1,19 @@
-import { renderTitle } from "@9gustin/react-notion-render";
-import Title from "@9gustin/react-notion-render/dist/types/Title";
-import Link from "next/link";
-import React from "react";
-import { dateToString } from "../../utils/dateToString";
+import { renderTitle } from '@9gustin/react-notion-render';
+import Title from '@9gustin/react-notion-render/dist/types/Title';
+import Link from 'next/link';
+import dateToString from '../../utils/dateToString';
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
-interface Props {
+interface IProps {
   posts: {
     id: string;
-    last_edited_time: string;
+    lastEditedTime: string;
     properties: { Name: Title };
   }[];
 }
 
-function PostList({ posts }: Props) {
+function PostList({ posts }: IProps): JSX.Element {
   return (
     <ul className={styles.posts}>
       {posts.map((post) => (
@@ -28,7 +27,7 @@ function PostList({ posts }: Props) {
               </h3>
 
               <p className={styles.subtitle}>
-                {dateToString(post.last_edited_time)}
+                {dateToString(post.lastEditedTime)}
               </p>
             </a>
           </Link>

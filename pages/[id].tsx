@@ -1,11 +1,11 @@
-import { renderBlocks, renderTitle } from "@9gustin/react-notion-render";
+import { renderBlocks, renderTitle } from '@9gustin/react-notion-render';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { getDatabase, getPage, getBlocks } from '../lib/notion';
+import ArticleWrapper from '../components/ArticleWrapper';
 
-import { getDatabase, getPage, getBlocks } from "../lib/notion";
-import ArticleWrapper from "../components/ArticleWrapper";
+import { databaseId } from '.';
 
-import { databaseId } from ".";
-
-export default function Post({ page, blocks }) {
+export default function Post({ page, blocks }): JSX.Element {
   if (!page || !blocks) {
     return <div />;
   }
@@ -17,7 +17,7 @@ export default function Post({ page, blocks }) {
   );
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const database = await getDatabase(databaseId);
   return {
     paths: database.map((page) => ({ params: { id: page.id } })),
@@ -25,7 +25,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const { id } = context.params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
@@ -35,18 +35,17 @@ export const getStaticProps = async (context) => {
   const childBlocks = await Promise.all(
     blocks
       .filter((block) => block.has_children)
-      .map(async (block) => {
-        return {
-          id: block.id,
-          children: await getBlocks(block.id),
-        };
-      })
+      .map(async (block) => ({
+        id: block.id,
+        children: await getBlocks(block.id),
+      })),
   );
   const blocksWithChildren = blocks.map((block) => {
     // Add child blocks if the block should contain children but none exists
     if (block.has_children && !block[block.type].children) {
-      block[block.type]["children"] = childBlocks.find(
-        (x) => x.id === block.id
+      // eslint-disable-next-line no-param-reassign
+      block[block.type].children = childBlocks.find(
+        (x) => x.id === block.id,
       )?.children;
     }
     return block;

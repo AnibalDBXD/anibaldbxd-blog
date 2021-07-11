@@ -1,9 +1,8 @@
-import "@9gustin/react-notion-render/dist/index.css";
-import React from "react";
-import LayoutWrapper from "../components/LayoutWrapper";
-import "../styles/globals.scss";
+import '@9gustin/react-notion-render/dist/index.css';
+import LayoutWrapper from '../components/LayoutWrapper';
+import '../styles/globals.scss';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }): JSX.Element {
   return (
     <LayoutWrapper>
       <Component {...pageProps} />
