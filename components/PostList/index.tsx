@@ -1,37 +1,31 @@
-import { renderTitle } from '@9gustin/react-notion-render';
-import Title from '@9gustin/react-notion-render/dist/types/Title';
-import Link from 'next/link';
-import dateToString from '../../utils/dateToString';
+import {
+  RadioGroup, HStack, Radio, VStack,
+} from '@chakra-ui/react';
+import { useState } from 'react';
+import { IPost } from './types';
+import Post from './Post';
 
 interface IProps {
-  posts: {
-    id: string;
-    lastEditedTime: string;
-    properties: { Name: Title };
-  }[];
+  posts: IPost[];
 }
 
 function PostList({ posts }: IProps): JSX.Element {
+  const [radio, setRadio] = useState('1');
   return (
-    <ul>
-      {posts.map((post) => (
-        <li key={post.id}>
-          <Link href={`/${post.id}`}>
-            <a>
-              <h3>
-                <Link href={`/${post.id}`}>
-                  {renderTitle(post.properties.Name)}
-                </Link>
-              </h3>
-
-              <p>
-                {dateToString(post.lastEditedTime)}
-              </p>
-            </a>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      <RadioGroup marginBottom="3rem" onChange={setRadio} value={radio}>
+        <HStack spacing="20px">
+          <Radio value="1">Todos</Radio>
+          <Radio value="2">Anime</Radio>
+          <Radio value="3">Manga</Radio>
+        </HStack>
+      </RadioGroup>
+      <VStack alignItems="baseline" marginTop="1rem" spacing="32px">
+        {posts.map((post) => (
+          <Post key={post.id} {...post} />
+        ))}
+      </VStack>
+    </>
   );
 }
 

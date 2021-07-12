@@ -1,4 +1,7 @@
 module.exports = {
+  images: {
+    domains: ['firebasestorage.googleapis.com'],
+  },
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   webpack(config) {
     config.module.rules.push({
@@ -8,7 +11,6 @@ module.exports = {
       },
       use: ['@svgr/webpack'],
     });
-
     return config;
   },
 };

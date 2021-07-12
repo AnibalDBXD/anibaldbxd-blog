@@ -1,17 +1,14 @@
-import { useEffect } from 'react';
 import Head from 'next/head';
 
 import { withRouter } from 'next/router';
+import { Box, useColorModeValue } from '@chakra-ui/react';
 import Header from '../Header';
 import PATHS from '../../config/paths';
 
 import user from '../../config/user';
 
 function LayoutWrapper({ router, children }): JSX.Element {
-  useEffect(() => {
-    if (user.theme) document.body.classList.add(`${user.theme}-theme`);
-  }, []);
-
+  const backgroundColor = useColorModeValue('gray.100', 'gray.800');
   return (
     <>
       <Head>
@@ -21,11 +18,17 @@ function LayoutWrapper({ router, children }): JSX.Element {
           {user.pageTitle}
         </title>
       </Head>
-      <Header
-        description={router.pathname === PATHS.home ? user.description : undefined}
-        title={user.title}
-      />
-      <main>{children}</main>
+      <Box
+        backgroundColor={backgroundColor}
+        minHeight="100vh"
+        paddingX="20px"
+      >
+        <Header
+          description={router.pathname === PATHS.home ? user.description : undefined}
+          title={user.title}
+        />
+        <Box as="main">{children}</Box>
+      </Box>
     </>
   );
 }

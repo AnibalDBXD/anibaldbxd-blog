@@ -1,3 +1,6 @@
+import {
+  Heading, Link as ChakraLink, Flex, Text, useColorModeValue,
+} from '@chakra-ui/react';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
@@ -11,16 +14,31 @@ interface IProps {
 }
 
 function Header({ title, description }: IProps): JSX.Element {
+  const headingColor = useColorModeValue('green.400', 'green.300');
   return (
-    <header>
-      <h1>
-        <Link href={PATHS.home}>
-          <a>{title}</a>
+    <Flex
+      alignItems="center"
+      as="header"
+      flexWrap="wrap"
+      height="100px"
+      justifyContent="space-between"
+      maxWidth="1024px"
+    >
+      <Heading>
+        <Link href={PATHS.home} passHref>
+          <ChakraLink
+            _hover={{ textDecoration: 'none' }}
+            color={headingColor}
+            fontSize="32px"
+            fontWeight="500"
+          >
+            {title}
+          </ChakraLink>
         </Link>
-      </h1>
+      </Heading>
       <ThemeToggler />
-      {description && <p>{description}</p>}
-    </header>
+      {description && <Text fontSize="lg" width="100%">{description}</Text>}
+    </Flex>
   );
 }
 

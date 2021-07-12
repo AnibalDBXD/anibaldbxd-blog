@@ -4,17 +4,17 @@ interface IUser {
   title: React.ReactNode;
   pageTitle: string;
   mainTitle: string;
-  theme: 'react' | 'angular' | 'vue' | 'js' | 'svelte' | null;
+  theme: 'anime' | 'manga' | null;
   description?: React.ReactNode;
 }
 
 const user: IUser = {
-  title: '9gu ⚡',
+  title: 'AnibalDBXD',
   description:
-    'Mi nombre empieza con 9 porque del 1 al 8 estaban ocupados. Soy Frontend Dev y cree este blog para escribir sobre cosas que me parezcan interesantes.',
-  theme: 'react',
+    'lreom imp´sum loremeerewoirneor43t34534583453849',
+  theme: 'anime',
   mainTitle: 'Blog',
-  pageTitle: ' | 9gustin',
+  pageTitle: ' | AnibalDBXD',
 };
 
 export default user;
