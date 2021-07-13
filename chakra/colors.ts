@@ -14,6 +14,11 @@ export const heading: IColor = {
   dark: 'green.300',
 };
 
+export const star: IColor = {
+  light: heading.light,
+  dark: heading.dark,
+};
+
 export const headingHover: IColor = {
   light: 'green.300',
   dark: 'green.200',

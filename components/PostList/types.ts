@@ -24,7 +24,7 @@ export interface IPost {
         rich_text: Text[]
       },
       Stars: {
-        number: 5
+        number: number
       }
     };
 }
