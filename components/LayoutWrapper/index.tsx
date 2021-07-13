@@ -25,6 +25,7 @@ function LayoutWrapper({ router, children }): JSX.Element {
       >
         <Header
           description={router.pathname === PATHS.home ? user.description : undefined}
+          isPost={router.pathname === PATHS.post}
           title={user.title}
         />
         <Box as="main">{children}</Box>

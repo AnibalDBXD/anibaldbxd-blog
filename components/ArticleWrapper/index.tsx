@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Head from 'next/head';
 import ReactDOMServer from 'react-dom/server';
 
@@ -21,12 +20,8 @@ function ArticleWrapper({ title, children }: IProps): JSX.Element {
       </Head>
 
       <article>
-        <h1>{title}</h1>
         <section>{children}</section>
       </article>
-      <Link href="/">
-        <a>Volver</a>
-      </Link>
     </>
   );
 }

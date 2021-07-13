@@ -6,6 +6,8 @@ function ThemeToggler(): JSX.Element {
   return (
     <IconButton
       aria-label={`Change ${colorMode} mode`}
+      border="0"
+      color={`${colorMode === 'dark' ? 'white' : 'black'}`}
       icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
       onClick={toggleColorMode}
     />
