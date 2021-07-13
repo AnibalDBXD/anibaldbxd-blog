@@ -13,10 +13,10 @@ import ThemeToggler from '../ThemeToggler';
 interface IProps {
   title: ReactNode;
   description?: ReactNode;
-  isPost: boolean;
+  isHome: boolean;
 }
 
-function Header({ title, description, isPost }: IProps): JSX.Element {
+function Header({ title, description, isHome }: IProps): JSX.Element {
   const headingColor = useColorModeValue('green.400', 'green.300');
   const headingHoverColor = useColorModeValue('green.300', 'green.200');
   const { push } = useRouter();
@@ -29,24 +29,8 @@ function Header({ title, description, isPost }: IProps): JSX.Element {
       justifyContent="space-between"
     >
       {
-        isPost
+        isHome
           ? (
-            // Use IconButton instead of Link/ChakraLink because Link only render text, not icons
-            <IconButton
-              _hover={{
-                color: headingHoverColor,
-              }}
-              aria-label="go back"
-              backgroundColor="transparent"
-              border="0"
-              color={headingColor}
-              cursor="pointer"
-              icon={<ArrowBackIcon fontSize="46px" />}
-              onClick={(): void => { push(PATHS.home); }}
-              variant="link"
-            />
-          )
-          : (
             <Heading>
               <Link href={PATHS.home} passHref>
                 <ChakraLink
@@ -62,6 +46,22 @@ function Header({ title, description, isPost }: IProps): JSX.Element {
                 </ChakraLink>
               </Link>
             </Heading>
+          )
+          : (
+            // Use IconButton instead of Link/ChakraLink because Link only render text, not icons
+            <IconButton
+              _hover={{
+                color: headingHoverColor,
+              }}
+              aria-label="go back"
+              backgroundColor="transparent"
+              border="0"
+              color={headingColor}
+              cursor="pointer"
+              icon={<ArrowBackIcon fontSize="46px" />}
+              onClick={(): void => { push(PATHS.home); }}
+              variant="link"
+            />
           )
       }
 
