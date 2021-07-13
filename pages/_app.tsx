@@ -3,10 +3,11 @@ import '@9gustin/react-notion-render/dist/index.css';
 import { withRouter } from 'next/router';
 import LayoutWrapper from '../components/LayoutWrapper';
 import PATHS from '../config/paths';
+import theme from '../chakra/theme';
 
 function MyApp({ router, Component, pageProps }): JSX.Element {
   return (
-    <ChakraProvider resetCSS={router.pathname !== PATHS.post}>
+    <ChakraProvider resetCSS={router.pathname !== PATHS.post} theme={theme}>
       <LayoutWrapper>
         <Component {...pageProps} />
       </LayoutWrapper>
