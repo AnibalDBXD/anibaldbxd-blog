@@ -2,11 +2,12 @@ import { Text, useColorModeValue, Box } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
 import PostList from '../components/PostList';
 import { getDatabase } from '../lib/notion';
+import { line } from '../chakra/colors';
 
 export const databaseId = process.env.NOTION_DATABASE_ID;
 
 export default function Home({ posts }): JSX.Element {
-  const lineColor = useColorModeValue('green.400', 'green.300');
+  const lineColor = useColorModeValue(line.light, line.dark);
   return (
     <Box paddingX="20px">
       <Text

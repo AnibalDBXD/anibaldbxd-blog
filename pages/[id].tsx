@@ -11,7 +11,7 @@ export default function Post({ page, blocks }): JSX.Element {
   }
 
   return (
-    <ArticleWrapper title={renderTitle(page.properties.Name)}>
+    <ArticleWrapper {...page} title={renderTitle(page.properties.Name)}>
       {renderBlocks(blocks)}
     </ArticleWrapper>
   );

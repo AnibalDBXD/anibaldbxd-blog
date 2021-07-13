@@ -5,6 +5,7 @@ import { ArrowBackIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
+import { heading, headingHover } from '../../chakra/colors';
 
 import PATHS from '../../config/paths';
 
@@ -17,8 +18,8 @@ interface IProps {
 }
 
 function Header({ title, description, isHome }: IProps): JSX.Element {
-  const headingColor = useColorModeValue('green.400', 'green.300');
-  const headingHoverColor = useColorModeValue('green.300', 'green.200');
+  const headingColor = useColorModeValue(heading.light, heading.dark);
+  const headingHoverColor = useColorModeValue(headingHover.light, headingHover.dark);
   const { push } = useRouter();
   return (
     <Flex

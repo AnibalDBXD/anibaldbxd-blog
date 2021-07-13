@@ -6,9 +6,10 @@ import Header from '../Header';
 import PATHS from '../../config/paths';
 
 import user from '../../config/user';
+import { background } from '../../chakra/colors';
 
 function LayoutWrapper({ router, children }): JSX.Element {
-  const backgroundColor = useColorModeValue('gray.100', 'gray.800');
+  const backgroundColor = useColorModeValue(background.light, background.dark);
   return (
     <>
       <Head>
