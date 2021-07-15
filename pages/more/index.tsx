@@ -1,16 +1,16 @@
 import { Box } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
-import PostList from '../components/PostList';
-import { getDatabase } from '../lib/notion';
-import TextWithLine from '../components/TextWithLine';
+import TextWithLine from '../../components/TextWithLine';
+import PostList from '../../components/PostList';
+import { getDatabase } from '../../lib/notion';
 
-export const databaseId = process.env.NOTION_DATABASE_ID;
+const databaseId = process.env.NOTION_MORE_DATABASE;
 
-export default function Home({ posts }): JSX.Element {
+export default function More({ posts }): JSX.Element {
   return (
     <Box paddingX="20px">
       <TextWithLine>
-        Publicaciones
+        Mas publicaciones
       </TextWithLine>
       <PostList posts={posts} />
     </Box>
