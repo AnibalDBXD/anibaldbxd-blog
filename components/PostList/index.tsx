@@ -3,8 +3,8 @@ import {
   RadioGroup, HStack, Radio, VStack,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { IPost } from './types';
-import Post from './Post';
+import { IPost } from '../../interfaces/types';
+import Post from '../Post';
 import { filterPostsByTag, ANIME_TAG, MANGA_TAG } from './utils';
 
 interface IProps {

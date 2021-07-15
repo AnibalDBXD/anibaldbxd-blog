@@ -10,11 +10,11 @@ import {
 import NextLink from 'next/link';
 import { renderTitle } from '@9gustin/react-notion-render';
 import { motion } from 'framer-motion';
-import { IPost } from '../types';
-import MyImage from '../../Image';
-import dateToString from '../../../utils/dateToString';
-import tagsToString from '../../../utils/tagsToString';
-import { japoneseName, darken } from '../../../chakra/colors';
+import { IPost } from '../../interfaces/types';
+import MyImage from '../Image';
+import dateToString from '../../utils/dateToString';
+import tagsToString from '../../utils/tagsToString';
+import { japoneseName, darken } from '../../chakra/colors';
 
 const MotionBox = motion<BoxProps>(Box);
 

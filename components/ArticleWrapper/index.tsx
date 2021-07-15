@@ -7,7 +7,7 @@ import {
   Box, HStack, Text, useColorModeValue,
 } from '@chakra-ui/react';
 import user from '../../config/user';
-import { IPost } from '../PostList/types';
+import { IPost } from '../../interfaces/types';
 import MyImage from '../Image';
 import tagsToString from '../../utils/tagsToString';
 import { japoneseName } from '../../chakra/colors';

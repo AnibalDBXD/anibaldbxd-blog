@@ -1,5 +1,5 @@
 import tagsToString from '../../utils/tagsToString';
-import { IPost } from './types';
+import { IPost } from '../../interfaces/types';
 
 export const ANIME_TAG = 'anime';
 export const MANGA_TAG = 'manga';
