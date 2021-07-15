@@ -26,7 +26,6 @@ function Header({ title, description, isHome }: IProps): JSX.Element {
       alignItems="center"
       as="header"
       flexWrap="wrap"
-      height="100px"
       justifyContent="space-between"
     >
       {
@@ -67,7 +66,7 @@ function Header({ title, description, isHome }: IProps): JSX.Element {
       }
 
       <ThemeToggler />
-      {description && <Text fontSize="lg" width="100%">{description}</Text>}
+      {description && <Text fontSize="lg" marginTop="1rem" width="100%">{description}</Text>}
     </Flex>
   );
 }
