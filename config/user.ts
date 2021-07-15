@@ -6,12 +6,14 @@ interface IUser {
   mainTitle: string;
   theme: 'anime' | 'manga' | null;
   description?: React.ReactNode;
+  moreDescription?: React.ReactNode;
 }
 
 const user: IUser = {
   title: 'AnibalDBXD',
   description:
-    'lreom imp´sum loremeerewoirneor43t34534583453849',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit justo vitae viverra tincidunt. Ut ipsum odio, convallis sit amet risus nec, ultrices luctus diam.',
+  moreDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec hendrerit justo vitae viverra tincidunt. Ut ipsum odio, convallis sit amet risus nec, ultrices luctus diam.',
   theme: 'anime',
   mainTitle: 'Blog',
   pageTitle: ' | AnibalDBXD',
