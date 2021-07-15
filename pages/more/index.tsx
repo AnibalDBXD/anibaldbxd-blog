@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
 import TextWithLine from '../../components/TextWithLine';
-import PostList from '../../components/PostList';
+import PostGrid from '../../components/PostGrid';
 import { getDatabase } from '../../lib/notion';
 
 const databaseId = process.env.NOTION_MORE_DATABASE;
@@ -12,7 +12,7 @@ export default function More({ posts }): JSX.Element {
       <TextWithLine>
         Mas publicaciones
       </TextWithLine>
-      <PostList posts={posts} />
+      <PostGrid posts={posts} />
     </Box>
   );
 }
