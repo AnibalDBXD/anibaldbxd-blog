@@ -12,7 +12,7 @@ export default function More({ posts }): JSX.Element {
       <TextWithLine>
         Mas publicaciones
       </TextWithLine>
-      <PostGrid posts={posts} />
+      <PostGrid haveContent={false} posts={posts} />
     </Box>
   );
 }
