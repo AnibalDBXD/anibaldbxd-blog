@@ -4,14 +4,19 @@ interface IColor {
     all?: string;
 }
 
+export const primaryColor: IColor = {
+  light: 'green.400',
+  dark: 'green.300',
+};
+
 export const japoneseName: IColor = {
   light: 'gray.500',
   dark: 'gray.300',
 };
 
 export const heading: IColor = {
-  light: 'green.400',
-  dark: 'green.300',
+  light: primaryColor.light,
+  dark: primaryColor.dark,
 };
 
 export const star: IColor = {
@@ -20,7 +25,7 @@ export const star: IColor = {
 };
 
 export const headingHover: IColor = {
-  light: 'green.300',
+  light: primaryColor.dark,
   dark: 'green.200',
 };
 
