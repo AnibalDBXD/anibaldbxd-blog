@@ -10,6 +10,11 @@ import { background } from '../../chakra/colors';
 
 function LayoutWrapper({ router, children }): JSX.Element {
   const backgroundColor = useColorModeValue(background.light, background.dark);
+
+  const description = {
+    [PATHS.home]: user.description,
+    [PATHS.more]: user.moreDescription,
+  };
   return (
     <>
       <Head>
@@ -25,7 +30,7 @@ function LayoutWrapper({ router, children }): JSX.Element {
         paddingX="20px"
       >
         <Header
-          description={router.pathname === PATHS.home ? user.description : undefined}
+          description={description[router.pathname] || undefined}
           isHome={router.pathname === PATHS.home}
           title={user.title}
         />
