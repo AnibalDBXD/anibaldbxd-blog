@@ -18,13 +18,13 @@ import { japoneseName, darken } from '../../chakra/colors';
 
 const MotionBox = motion<BoxProps>(Box);
 
-const Post = ({
+function Post({
   id,
   last_edited_time,
   properties: {
     Image, Name, JaponeseName, Tags,
   },
-}: IPost): JSX.Element => {
+}: IPost): JSX.Element {
   const japoneseNameColor = useColorModeValue(
     japoneseName.light, japoneseName.dark,
   );
@@ -71,6 +71,6 @@ const Post = ({
     </SlideFade>
 
   );
-};
+}
 
 export default Post;
