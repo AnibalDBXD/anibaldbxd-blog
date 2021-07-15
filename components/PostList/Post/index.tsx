@@ -1,14 +1,22 @@
 /* eslint-disable camelcase */
 import {
-  Box, Text, Link, useColorModeValue, SlideFade,
+  Box,
+  Text,
+  Link,
+  useColorModeValue,
+  SlideFade,
+  BoxProps,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { renderTitle } from '@9gustin/react-notion-render';
+import { motion } from 'framer-motion';
 import { IPost } from '../types';
 import MyImage from '../../Image';
 import dateToString from '../../../utils/dateToString';
 import tagsToString from '../../../utils/tagsToString';
 import { japoneseName, darken } from '../../../chakra/colors';
+
+const MotionBox = motion<BoxProps>(Box);
 
 const Post = ({
   id,
@@ -20,15 +28,17 @@ const Post = ({
   const japoneseNameColor = useColorModeValue(
     japoneseName.light, japoneseName.dark,
   );
+
   return (
     <SlideFade in offsetY="40px">
       <NextLink href={`/${id}`}>
         <Link
           _hover={{ textDecoration: 'none' }}
         >
-          <Box
+          <MotionBox
             display="flex"
             height="160px"
+            whileHover={{ translateY: '-5px', translateX: '5px' }}
           >
             <Box position="relative">
               <MyImage
@@ -55,7 +65,7 @@ const Post = ({
               <Text color={japoneseNameColor}>{JaponeseName.rich_text[0].plain_text}</Text>
               <Text bottom="0" position="absolute">{dateToString(last_edited_time)}</Text>
             </Box>
-          </Box>
+          </MotionBox>
         </Link>
       </NextLink>
     </SlideFade>
