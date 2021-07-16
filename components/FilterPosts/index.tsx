@@ -1,4 +1,5 @@
 import { HStack, Radio, RadioGroup } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import { IPost } from '../../interfaces/types';
 import { filterPostsByTag, ANIME_TAG, MANGA_TAG } from './utils';
@@ -10,6 +11,7 @@ interface IFilterPosts {
 
 const FilterPosts = ({ setPosts, posts }: IFilterPosts): JSX.Element => {
   const [radio, setRadio] = useState('1');
+  const { t } = useTranslation('common');
 
   useEffect(() => {
     const POSTS_OPTIONS = {
@@ -27,7 +29,7 @@ const FilterPosts = ({ setPosts, posts }: IFilterPosts): JSX.Element => {
   return (
     <RadioGroup marginBottom="3rem" onChange={setRadio} value={radio}>
       <HStack spacing="20px">
-        <Radio value="1">Todos</Radio>
+        <Radio value="1">{t('all')}</Radio>
         <Radio value="2">Anime</Radio>
         <Radio value="3">Manga</Radio>
       </HStack>

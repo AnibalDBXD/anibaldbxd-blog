@@ -6,6 +6,7 @@ import { ReactNode } from 'react';
 import {
   Box, HStack, Text, useColorModeValue,
 } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 import user from '../../config/user';
 import { IPost } from '../../interfaces/types';
 import MyImage from '../Image';
@@ -31,6 +32,7 @@ function ArticleWrapper({
     japoneseName.light, japoneseName.dark,
   );
   const stars = new Array(Stars.number).fill(Star);
+  const { i18n: { language } } = useTranslation('common');
   return (
     <>
       <Head>
@@ -69,7 +71,7 @@ function ArticleWrapper({
             </Text>
             <Box alignItems="center" display="flex" justifyContent="space-between" marginBottom="1rem">
               <Text color={JaponeseNameColor} fontSize="1.2rem" margin="0" textTransform="capitalize">{tagsToString(Tags)}</Text>
-              <Text color={JaponeseNameColor} fontSize="1.2rem" margin="0">{dateToString(last_edited_time, true)}</Text>
+              <Text color={JaponeseNameColor} fontSize="1.2rem" margin="0">{dateToString(last_edited_time, language, true)}</Text>
             </Box>
             <HStack>
               {stars.map((Component, i) => <Component key={i} />)}

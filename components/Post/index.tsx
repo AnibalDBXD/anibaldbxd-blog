@@ -10,6 +10,7 @@ import {
 import NextLink from 'next/link';
 import { renderTitle } from '@9gustin/react-notion-render';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'next-i18next';
 import { IPost } from '../../interfaces/types';
 import MyImage from '../Image';
 import dateToString from '../../utils/dateToString';
@@ -33,6 +34,12 @@ function Post({
   const japoneseNameColor = useColorModeValue(
     japoneseName.light, japoneseName.dark,
   );
+
+  const { i18n: { language } } = useTranslation('common');
+
+  if (Image === undefined) {
+    return <></>;
+  }
 
   const childrenElement = (
     <>
@@ -64,7 +71,7 @@ function Post({
         <Box marginLeft="5px" position="relative">
           <Text as="h3" fontSize="1.5rem" fontWeight="bold" marginTop="-10px" textTransform="capitalize">{renderTitle(Name)}</Text>
           <Text color={japoneseNameColor}>{JaponeseName.rich_text[0].plain_text}</Text>
-          <Text bottom="0" position="absolute">{dateToString(last_edited_time)}</Text>
+          <Text bottom="0" position="absolute">{dateToString(last_edited_time, language)}</Text>
         </Box>
       </MotionBox>
     </>

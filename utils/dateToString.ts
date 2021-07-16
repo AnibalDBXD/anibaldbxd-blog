@@ -1,6 +1,10 @@
-const dateToString = (date: string | Date, isMonthLong?: boolean): string =>
+const dateToString = (
+  date: string | Date,
+  language: string = 'es',
+  isMonthLong?: boolean,
+): string =>
   new Date(date).toLocaleString(
-    'en-US',
+    language,
     {
       month: `${isMonthLong ? 'long' : 'short'}`,
       day: '2-digit',

@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 import { withRouter } from 'next/router';
 import { Box, useColorModeValue } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 import Header from '../Header';
 import PATHS from '../../config/paths';
 
@@ -10,10 +11,11 @@ import { background } from '../../lib/chakra/colors';
 
 function LayoutWrapper({ router, children }): JSX.Element {
   const backgroundColor = useColorModeValue(background.light, background.dark);
+  const { t } = useTranslation('common');
 
   const description = {
-    [PATHS.home]: user.description,
-    [PATHS.more]: user.moreDescription,
+    [PATHS.home]: t('description'),
+    [PATHS.more]: t('moreDescription'),
   };
   return (
     <>

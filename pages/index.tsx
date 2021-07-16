@@ -3,6 +3,7 @@ import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 import PostList from '../components/PostList';
 import { getDatabase } from '../lib/notion';
 import TextWithLine from '../components/TextWithLine';
@@ -14,10 +15,11 @@ export const databaseId = process.env.NOTION_DATABASE_ID;
 export default function Home({ posts }): JSX.Element {
   const buttonColor = useColorModeValue(primaryColor.light, primaryColor.dark);
   const { push } = useRouter();
+  const { t } = useTranslation('common');
   return (
     <Box paddingX="20px">
       <TextWithLine>
-        Publicaciones
+        {t('publications')}
       </TextWithLine>
       <PostList posts={posts} />
       <Button
@@ -28,7 +30,7 @@ export default function Home({ posts }): JSX.Element {
         rightIcon={<ExternalLinkIcon />}
         variant="outline"
       >
-        More
+        {t('more')}
       </Button>
     </Box>
   );
