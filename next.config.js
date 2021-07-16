@@ -1,4 +1,10 @@
+const { i18n } = require('./next-i18next.config');
+
 module.exports = {
+  /**
+   * @type {import('next').NextConfig}
+  */
+  i18n,
   images: {
     domains: ['firebasestorage.googleapis.com'],
   },

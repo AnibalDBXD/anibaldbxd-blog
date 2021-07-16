@@ -17,6 +17,7 @@
     "@notionhq/client": "^0.1.8",
     "framer-motion": "^4.1.17",
     "next": "10.2.3",
+    "next-i18next": "^8.5.5",
     "react": "17.x",
     "react-dom": "17.x",
     "typescript": "^4.3.5"

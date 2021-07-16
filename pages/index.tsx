@@ -2,6 +2,7 @@ import { Box, Button, useColorModeValue } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import PostList from '../components/PostList';
 import { getDatabase } from '../lib/notion';
 import TextWithLine from '../components/TextWithLine';
@@ -33,12 +34,13 @@ export default function Home({ posts }): JSX.Element {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const database = await getDatabase(databaseId);
 
   return {
     props: {
       posts: database,
+      ...(await serverSideTranslations(locale, ['common'])),
     },
     revalidate: 1,
   };
