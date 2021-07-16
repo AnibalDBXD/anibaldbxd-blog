@@ -10,6 +10,7 @@ import { heading, headingHover } from '../../lib/chakra/colors';
 import PATHS from '../../config/paths';
 
 import ThemeToggler from '../ThemeToggler';
+import Settings from '../Settings';
 
 interface IProps {
   title: ReactNode;
@@ -67,6 +68,7 @@ function Header({ title, description, isHome }: IProps): JSX.Element {
 
       <ThemeToggler />
       {description && <Text fontSize="lg" marginTop="1rem" width="100%">{description}</Text>}
+      <Settings />
     </Flex>
   );
 }
