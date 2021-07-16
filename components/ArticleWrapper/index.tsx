@@ -10,7 +10,7 @@ import user from '../../config/user';
 import { IPost } from '../../interfaces/types';
 import MyImage from '../Image';
 import tagsToString from '../../utils/tagsToString';
-import { japoneseName } from '../../chakra/colors';
+import { japoneseName } from '../../lib/chakra/colors';
 import dateToString from '../../utils/dateToString';
 import Star from '../Star';
 

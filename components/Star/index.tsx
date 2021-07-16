@@ -1,7 +1,7 @@
 import { useColorModeValue } from '@chakra-ui/react';
 import { StarIcon, IconProps } from '@chakra-ui/icons';
 import { motion } from 'framer-motion';
-import { star } from '../../chakra/colors';
+import { star } from '../../lib/chakra/colors';
 
 const MotionStar = motion<IconProps>(StarIcon);
 

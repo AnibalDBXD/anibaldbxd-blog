@@ -5,7 +5,7 @@ import { ArrowBackIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
-import { heading, headingHover } from '../../chakra/colors';
+import { heading, headingHover } from '../../lib/chakra/colors';
 
 import PATHS from '../../config/paths';
 

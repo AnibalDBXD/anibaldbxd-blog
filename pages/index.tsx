@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import PostList from '../components/PostList';
 import { getDatabase } from '../lib/notion';
 import TextWithLine from '../components/TextWithLine';
-import { primaryColor } from '../chakra/colors';
+import { primaryColor } from '../lib/chakra/colors';
 import PATHS from '../config/paths';
 
 export const databaseId = process.env.NOTION_DATABASE_ID;

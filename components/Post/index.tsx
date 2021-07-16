@@ -14,7 +14,7 @@ import { IPost } from '../../interfaces/types';
 import MyImage from '../Image';
 import dateToString from '../../utils/dateToString';
 import tagsToString from '../../utils/tagsToString';
-import { japoneseName, darken } from '../../chakra/colors';
+import { japoneseName, darken } from '../../lib/chakra/colors';
 
 const MotionBox = motion<BoxProps>(Box);
 

@@ -1,6 +1,6 @@
 import { useColorModeValue, Text } from '@chakra-ui/react';
 import { ReactNode } from 'react';
-import { line } from '../../chakra/colors';
+import { line } from '../../lib/chakra/colors';
 
 function TextWithLine({ children }: { children: ReactNode}): JSX.Element {
   const lineColor = useColorModeValue(line.light, line.dark);
