@@ -9,6 +9,7 @@ function ThemeToggler(): JSX.Element {
       border="0"
       color={`${colorMode === 'dark' ? 'white' : 'black'}`}
       icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
+      marginTop="20px"
       onClick={toggleColorMode}
     />
   );
