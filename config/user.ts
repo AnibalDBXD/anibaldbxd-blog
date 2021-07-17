@@ -19,10 +19,10 @@ const user: IUser = {
   pageTitle: ' | AnibalDBXD',
   keywords: ['Manga', 'Anime'],
   author: 'Anibal Olivares',
-  pageUrl: '',
+  pageUrl: 'anibaldbxd.cf',
   metaDescription: {
-    en: '',
-    es: '',
+    en: 'Reviews of series, anime and movies.',
+    es: 'Reseñas de series, animes y peliculas.',
   },
 };
 
