@@ -8,6 +8,7 @@ import PATHS from '../../config/paths';
 
 import user from '../../config/user';
 import { background } from '../../lib/chakra/colors';
+import Settings from '../Settings';
 
 function LayoutWrapper({ router, children }): JSX.Element {
   const backgroundColor = useColorModeValue(background.light, background.dark);
@@ -37,7 +38,9 @@ function LayoutWrapper({ router, children }): JSX.Element {
           title={user.title}
         />
         <Box as="main">{children}</Box>
+        {router.pathname === PATHS.home && <Settings />}
       </Box>
+
     </>
   );
 }
