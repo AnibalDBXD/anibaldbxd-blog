@@ -9,8 +9,14 @@ import { getDatabase } from '../lib/notion';
 import TextWithLine from '../components/TextWithLine';
 import { primaryColor } from '../lib/chakra/colors';
 import PATHS from '../config/paths';
+import { languages } from '../next-i18next.config';
 
-export const databaseId = process.env.NOTION_DATABASE_ID;
+const { ENGLISH, SPANISH } = languages;
+
+export const DATABASE_LANGUAGES = {
+  [SPANISH.short]: process.env.NOTION_DATABASE_ID,
+  [ENGLISH.short]: process.env.ENGLISH_NOTION_DATABASE_ID,
+};
 
 export default function Home({ posts }): JSX.Element {
   const buttonColor = useColorModeValue(primaryColor.light, primaryColor.dark);
@@ -37,6 +43,7 @@ export default function Home({ posts }): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const databaseId = DATABASE_LANGUAGES[locale] || SPANISH.short;
   const database = await getDatabase(databaseId);
 
   return {

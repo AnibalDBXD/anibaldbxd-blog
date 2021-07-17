@@ -1,9 +1,10 @@
 import { renderBlocks, renderTitle } from '@9gustin/react-notion-render';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { getDatabase, getPage, getBlocks } from '../lib/notion';
 import ArticleWrapper from '../components/ArticleWrapper';
 
-import { databaseId } from '.';
+import { DATABASE_LANGUAGES } from '.';
 
 export default function Post({ page, blocks }): JSX.Element {
   if (!page || !blocks) {
@@ -17,16 +18,20 @@ export default function Post({ page, blocks }): JSX.Element {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const database = await getDatabase(databaseId);
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  const databases = await Promise.all(
+    locales.map((locale) => getDatabase(DATABASE_LANGUAGES[locale])),
+  );
   return {
-    paths: database.map((page) => ({ params: { id: page.id } })),
+    paths: databases.map(
+      (database) => database.map((page) => ({ params: { id: page.id } })),
+    ).flat(),
     fallback: true,
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { id } = context.params;
+export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
+  const { id } = params;
   const page = await getPage(id);
   const blocks = await getBlocks(id);
 
@@ -55,6 +60,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       page,
       blocks: blocksWithChildren,
+      ...(await serverSideTranslations(locale, ['common'])),
     },
     revalidate: 1,
   };
