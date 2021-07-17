@@ -19,6 +19,7 @@ import {
 } from '@chakra-ui/react';
 import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 import { languages } from '../../next-i18next.config';
 import { primaryColor } from '../../lib/chakra/colors';
 import PATHS from '../../config/paths';
@@ -28,6 +29,7 @@ function Settings(): JSX.Element {
   const buttonsBg = useColorModeValue(primaryColor.light, primaryColor.dark);
   const { push } = useRouter();
   const btnRef = useRef();
+  const { t } = useTranslation('common');
 
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [loading, setLoading] = useBoolean(false);
@@ -66,7 +68,7 @@ function Settings(): JSX.Element {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton isDisabled={loading} />
-          <DrawerHeader>Settings</DrawerHeader>
+          <DrawerHeader>{t('settingsHeader')}</DrawerHeader>
 
           <DrawerBody>
             <Menu>
@@ -88,9 +90,16 @@ function Settings(): JSX.Element {
 
           <DrawerFooter>
             <Button isDisabled={loading} mr={3} onClick={onClose} variant="outline">
-              Cancel
+              {t('settingsCancel')}
             </Button>
-            <Button backgroundColor={buttonsBg} colorScheme="whatsapp" isLoading={loading} onClick={handleSave}>Save</Button>
+            <Button
+              backgroundColor={buttonsBg}
+              colorScheme="whatsapp"
+              isLoading={loading}
+              onClick={handleSave}
+            >
+              {t('settingsSave')}
+            </Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

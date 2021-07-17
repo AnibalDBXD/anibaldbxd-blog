@@ -1,7 +1,10 @@
 {
     "publications": "Publicaciones",
-    "more": "Mas",
+    "more": "Más",
     "all": "Todos",
     "description": "Español lorem",
-    "moreDescription": "Espaol mas description"
+    "moreDescription": "Espaol mas description",
+    "settingsHeader": "Ajustes",
+    "settingsCancel": "Cancelar",
+    "settingsSave": "Guardar"
 }
