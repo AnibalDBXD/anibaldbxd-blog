@@ -21,6 +21,7 @@ import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { languages } from '../../next-i18next.config';
 import { primaryColor } from '../../lib/chakra/colors';
+import PATHS from '../../config/paths';
 
 function Settings(): JSX.Element {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -37,7 +38,7 @@ function Settings(): JSX.Element {
     ).short;
 
     setLoading.on();
-    push('/', null, { locale: selectedLang })
+    push(PATHS.home, null, { locale: selectedLang })
       .then(setLoading.off);
   };
 
