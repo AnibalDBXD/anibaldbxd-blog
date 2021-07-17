@@ -7,6 +7,7 @@ import TextWithLine from '../../components/TextWithLine';
 import PostGrid from '../../components/PostGrid';
 import { getDatabase } from '../../lib/notion';
 import user from '../../config/user';
+import PATHS from '../../config/paths';
 
 const databaseId = process.env.NOTION_MORE_DATABASE;
 
@@ -20,6 +21,7 @@ export default function More({ posts }): JSX.Element {
           {t('title')}
           {user.pageTitle}
         </title>
+        <link href={`${user.pageUrl}${PATHS.more}`} rel="canonical" />
       </Head>
       <Box paddingX="20px">
         <TextWithLine>

@@ -4,12 +4,14 @@ import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import Head from 'next/head';
 import PostList from '../components/PostList';
 import { getDatabase } from '../lib/notion';
 import TextWithLine from '../components/TextWithLine';
 import { primaryColor } from '../lib/chakra/colors';
 import PATHS from '../config/paths';
 import { languages } from '../next-i18next.config';
+import user from '../config/user';
 
 const { ENGLISH, SPANISH } = languages;
 
@@ -23,22 +25,27 @@ export default function Home({ posts }): JSX.Element {
   const { push } = useRouter();
   const { t } = useTranslation('common');
   return (
-    <Box paddingX="20px">
-      <TextWithLine>
-        {t('publications')}
-      </TextWithLine>
-      <PostList posts={posts} />
-      <Button
-        borderColor={buttonColor}
-        color={buttonColor}
-        marginTop="2rem"
-        onClick={(): void => { push(PATHS.more); }}
-        rightIcon={<ExternalLinkIcon />}
-        variant="outline"
-      >
-        {t('more')}
-      </Button>
-    </Box>
+    <>
+      <Head>
+        <link href={user.pageUrl} rel="canonical" />
+      </Head>
+      <Box paddingX="20px">
+        <TextWithLine>
+          {t('publications')}
+        </TextWithLine>
+        <PostList posts={posts} />
+        <Button
+          borderColor={buttonColor}
+          color={buttonColor}
+          marginTop="2rem"
+          onClick={(): void => { push(PATHS.more); }}
+          rightIcon={<ExternalLinkIcon />}
+          variant="outline"
+        >
+          {t('more')}
+        </Button>
+      </Box>
+    </>
   );
 }
 

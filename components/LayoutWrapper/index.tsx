@@ -18,6 +18,7 @@ function LayoutWrapper({ router, children }): JSX.Element {
     [PATHS.home]: t('description'),
     [PATHS.more]: t('moreDescription'),
   };
+
   return (
     <>
       <Head>
@@ -26,6 +27,10 @@ function LayoutWrapper({ router, children }): JSX.Element {
           {user.mainTitle}
           {user.pageTitle}
         </title>
+        <meta content={user.metaDescription.en} lang="en" name="description" />
+        <meta content={user.metaDescription.es} lang="es" name="description" />
+        <meta content={user.keywords.join(', ')} name="keywords" />
+        <meta content={user.author} name="author" />
       </Head>
       <Box
         backgroundColor={backgroundColor}

@@ -22,6 +22,7 @@ interface IProps extends IPost {
 
 function ArticleWrapper({
   title,
+  id,
   // eslint-disable-next-line camelcase
   last_edited_time,
   children, properties: {
@@ -39,6 +40,7 @@ function ArticleWrapper({
         <title>
           {ReactDOMServer.renderToString(title)}
           {user.pageTitle}
+          <link href={`${user.pageUrl}/${id}`} rel="canonical" />
         </title>
       </Head>
       <Box display="flex" flexWrap={{ base: 'wrap', md: 'nowrap' }} marginTop="34px">
