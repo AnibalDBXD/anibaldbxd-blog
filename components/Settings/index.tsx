@@ -56,6 +56,8 @@ function Settings(): JSX.Element {
         right="20px"
       />
       <Drawer
+        closeOnEsc={!loading}
+        closeOnOverlayClick={!loading}
         finalFocusRef={btnRef}
         isOpen={isOpen}
         onClose={onClose}
@@ -63,12 +65,12 @@ function Settings(): JSX.Element {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton />
+          <DrawerCloseButton isDisabled={loading} />
           <DrawerHeader>Settings</DrawerHeader>
 
           <DrawerBody>
             <Menu>
-              <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+              <MenuButton as={Button} isDisabled={loading} rightIcon={<ChevronDownIcon />}>
                 {selectedLanguage || 'Select Langueage'}
               </MenuButton>
               <MenuList>
@@ -85,10 +87,10 @@ function Settings(): JSX.Element {
           </DrawerBody>
 
           <DrawerFooter>
-            <Button mr={3} onClick={onClose} variant="outline">
+            <Button isDisabled={loading} mr={3} onClick={onClose} variant="outline">
               Cancel
             </Button>
-            <Button backgroundColor={buttonsBg} colorScheme="whatsapp" isDisabled={!selectedLanguage} isLoading={loading} onClick={handleSave}>Save</Button>
+            <Button backgroundColor={buttonsBg} colorScheme="whatsapp" isLoading={loading} onClick={handleSave}>Save</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
