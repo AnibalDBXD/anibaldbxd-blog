@@ -48,7 +48,7 @@ function Post({
         height="160px"
         whileHover={{ translateY: '-5px', translateX: '5px' }}
       >
-        <Box position="relative">
+        <Box height="160px" minWidth="100px" position="relative">
           <MyImage
             alt={`${Name.title[0].plain_text} poster`}
             height={160}

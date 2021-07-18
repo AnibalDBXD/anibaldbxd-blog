@@ -6,7 +6,7 @@ module.exports = {
   */
   i18n,
   images: {
-    domains: ['firebasestorage.googleapis.com'],
+    domains: ['firebasestorage.googleapis.com', 'cdn.myanimelist.net'],
   },
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   webpack(config) {
