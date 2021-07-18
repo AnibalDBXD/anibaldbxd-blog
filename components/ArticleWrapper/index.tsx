@@ -71,7 +71,7 @@ function ArticleWrapper({
             >
               {JaponeseName.rich_text[0].plain_text}
             </Text>
-            <Box alignItems="center" display="flex" justifyContent="space-between" marginBottom="1rem">
+            <Box alignItems="center" display="flex" flexWrap="wrap" gridGap="0.5rem" justifyContent="space-between" marginBottom="1rem">
               <Text color={JaponeseNameColor} fontSize="1.2rem" margin="0" textTransform="capitalize">{tagsToString(Tags)}</Text>
               <Text color={JaponeseNameColor} fontSize="1.2rem" margin="0">{dateToString(last_edited_time, language, true)}</Text>
             </Box>
