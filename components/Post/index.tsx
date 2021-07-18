@@ -69,7 +69,7 @@ function Post({
           </Text>
         </Box>
         <Box marginLeft="5px" position="relative">
-          <Text as="h3" fontSize="1.5rem" fontWeight="bold" marginTop="-10px" textTransform="capitalize">{renderTitle(Name)}</Text>
+          <Text as="h3" fontSize={{ sm: '1.3rem', md: '1.2rem', lg: '1.3rem' }} fontWeight="bold" marginTop="-10px" textTransform="capitalize">{renderTitle(Name)}</Text>
           <Text color={japoneseNameColor}>{JaponeseName.rich_text[0].plain_text}</Text>
           <Text bottom="0" position="absolute">{dateToString(last_edited_time, language)}</Text>
         </Box>
