@@ -12,7 +12,7 @@ This is my personal blog about series, anime, videogames, etc...
 
 # Start project
 
-1. ``` $ git clone https://github.com/AnibalDBXD/mylink.git```
+1. ``` $ git clone https://github.com/AnibalDBXD/anibaldbxd-blog.git```
 2. ``` $ cd mylink ```
 4. ``` npm install ```
 5. ``` npm run dev ```
