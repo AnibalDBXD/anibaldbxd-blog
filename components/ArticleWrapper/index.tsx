@@ -22,7 +22,6 @@ interface IProps extends IPost {
 
 function ArticleWrapper({
   title,
-  id,
   // eslint-disable-next-line camelcase
   last_edited_time,
   children, properties: {
