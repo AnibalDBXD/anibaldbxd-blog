@@ -51,13 +51,15 @@ function ArticleWrapper({
           marginRight={{ base: 'auto', md: '5%' }}
           width={{ base: '100%', md: '400px' }}
         >
-          <MyImage
-            alt={`${Name.title[0].plain_text} poster`}
-            borderRadius="10px"
-            height={600}
-            src={Image.url}
-            width={400}
-          />
+          <Box minWidth="30vh">
+            <MyImage
+              alt={`${Name.title[0].plain_text} poster`}
+              borderRadius="10px"
+              height={600}
+              src={Image.url}
+              width={400}
+            />
+          </Box>
           <Box width="100%">
             <Text as="h2" fontSize="2rem" fontWeight="bold" marginBottom="0">{title}</Text>
             <Text
