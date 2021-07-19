@@ -73,7 +73,7 @@ function Settings(): JSX.Element {
           <DrawerBody>
             <Menu>
               <MenuButton as={Button} isDisabled={loading} rightIcon={<ChevronDownIcon />}>
-                {selectedLanguage || 'Select Langueage'}
+                {selectedLanguage || t('selectLang')}
               </MenuButton>
               <MenuList>
                 {languages.SUPPORT_LANGUAGE.map((lang) => (
