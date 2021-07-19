@@ -26,9 +26,6 @@ export default function Home({ posts }): JSX.Element {
   const { t } = useTranslation('common');
   return (
     <>
-      <Head>
-        <link href={user.pageUrl} rel="canonical" />
-      </Head>
       <Box paddingX="20px">
         <TextWithLine>
           {t('publications')}

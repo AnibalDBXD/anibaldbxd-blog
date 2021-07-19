@@ -41,7 +41,6 @@ function ArticleWrapper({
           {ReactDOMServer.renderToString(title)}
           {user.pageTitle}
         </title>
-        <link href={`${user.pageUrl}/${id}`} rel="canonical" />
       </Head>
       <Box display="flex" flexWrap={{ base: 'wrap', md: 'nowrap' }} marginTop="34px">
         <Box
