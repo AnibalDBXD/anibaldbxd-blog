@@ -4,7 +4,7 @@ import ReactDOMServer from 'react-dom/server';
 
 import { ReactNode } from 'react';
 import {
-  Box, HStack, Text, useColorModeValue,
+  Box, Text, useColorModeValue,
 } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
 import user from '../../config/user';
@@ -13,7 +13,7 @@ import MyImage from '../Image';
 import tagsToString from '../../utils/tagsToString';
 import { japoneseName } from '../../lib/chakra/colors';
 import dateToString from '../../utils/dateToString';
-import Star from '../Star';
+import StarList from '../StarList';
 
 interface IProps extends IPost {
   title: ReactNode;
@@ -31,7 +31,6 @@ function ArticleWrapper({
   const JaponeseNameColor = useColorModeValue(
     japoneseName.light, japoneseName.dark,
   );
-  const stars = new Array(Stars.number).fill(Star);
   const { i18n: { language } } = useTranslation('common');
   return (
     <>
@@ -75,9 +74,7 @@ function ArticleWrapper({
               <Text color={JaponeseNameColor} fontSize="1.2rem" margin="0" textTransform="capitalize">{tagsToString(Tags)}</Text>
               <Text color={JaponeseNameColor} fontSize="1.2rem" margin="0">{dateToString(last_edited_time, language, true)}</Text>
             </Box>
-            <HStack>
-              {stars.map((Component, i) => <Component key={i} />)}
-            </HStack>
+            <StarList direction="row" stars={Stars.number} />
           </Box>
         </Box>
         <Box as="article" marginTop="-34px">
