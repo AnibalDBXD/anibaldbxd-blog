@@ -16,7 +16,7 @@ function PostGrid({ posts, haveContent }: IProps): JSX.Element {
   return (
     <>
       <FilterPosts posts={posts} setPosts={setPosts} />
-      <SimpleGrid columns={[1, 1, 2, 3]} spacing={10}>
+      <SimpleGrid columns={[1, 1, 2, 3]} gridGap="4rem">
         {currentPosts.map((post) => (
           <Post key={post.id} haveContent={haveContent} {...post} />
         ))}
