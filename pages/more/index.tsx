@@ -21,7 +21,7 @@ export default function More({ posts }): JSX.Element {
           {user.pageTitle}
         </title>
       </Head>
-      <Box paddingX="20px">
+      <Box paddingBottom="2rem" paddingX="20px">
         <TextWithLine>
           {t('textWithLine')}
         </TextWithLine>
