@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { Box, Button, useColorModeValue } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { GetStaticProps } from 'next';
@@ -24,6 +25,9 @@ export default function Home({ posts }): JSX.Element {
   const { t } = useTranslation('common');
   return (
     <>
+      <Head>
+        <meta content="index, follow" name="robots" />
+      </Head>
       <Box paddingX="20px">
         <TextWithLine>
           {t('publications')}

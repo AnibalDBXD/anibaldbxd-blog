@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://anibaldbxd.cf
+
+# Sitemaps
+Sitemap: https://anibaldbxd.cf/sitemap.xml
+Sitemap: https://anibaldbxd.cf/server-sitemap.xml
