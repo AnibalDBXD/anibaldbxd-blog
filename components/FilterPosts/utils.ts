@@ -11,3 +11,11 @@ export function filterPostsByTag(posts: IPost[], tag: string): IPost[] {
   });
   return filteredPosts;
 }
+
+export function getUniqueTagsByPosts(posts: IPost[]): string[] {
+  const tags = posts.map(
+    ({ properties }) => properties.Tags.multi_select.map((tag) => tag.name),
+  ).flat();
+
+  return Array.from(new Set(tags));
+}
