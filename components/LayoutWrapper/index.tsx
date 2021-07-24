@@ -10,6 +10,10 @@ import user from '../../config/user';
 import { background } from '../../lib/chakra/colors';
 import Settings from '../Settings';
 
+const {
+  mainTitle, pageTitle,
+} = user;
+
 function LayoutWrapper({ router, children }): JSX.Element {
   const backgroundColor = useColorModeValue(background.light, background.dark);
   const { t } = useTranslation('common');
@@ -24,13 +28,9 @@ function LayoutWrapper({ router, children }): JSX.Element {
       <Head>
         <link href="/favicon.ico" rel="icon" />
         <title>
-          {user.mainTitle}
-          {user.pageTitle}
+          {mainTitle}
+          {pageTitle}
         </title>
-        <meta content={user.metaDescription.en} lang="en" name="description" />
-        <meta content={user.metaDescription.es} lang="es" name="description" />
-        <meta content={user.keywords.join(', ')} name="keywords" />
-        <meta content={user.author} name="author" />
       </Head>
       <Box
         backgroundColor={backgroundColor}

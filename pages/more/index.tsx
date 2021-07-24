@@ -7,6 +7,7 @@ import TextWithLine from '../../components/TextWithLine';
 import PostGrid from '../../components/PostGrid';
 import { getDatabase } from '../../lib/notion';
 import user from '../../config/user';
+import SEO from '../../components/SEO';
 
 const databaseId = process.env.NOTION_MORE_DATABASE;
 
@@ -20,6 +21,7 @@ export default function More({ posts }): JSX.Element {
           {t('title')}
           {user.pageTitle}
         </title>
+        <SEO title={`${t('title')} ${user.pageTitle}}`} />
       </Head>
       <Box paddingBottom="2rem" paddingX="20px">
         <TextWithLine>

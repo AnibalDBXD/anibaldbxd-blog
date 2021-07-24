@@ -11,6 +11,7 @@ import TextWithLine from '../components/TextWithLine';
 import { primaryColor } from '../lib/chakra/colors';
 import PATHS from '../config/paths';
 import { languages } from '../next-i18next.config';
+import SEO from '../components/SEO';
 
 const { ENGLISH, SPANISH } = languages;
 
@@ -26,7 +27,7 @@ export default function Home({ posts }): JSX.Element {
   return (
     <>
       <Head>
-        <meta content="index, follow" name="robots" />
+        <SEO />
       </Head>
       <Box paddingX="20px">
         <TextWithLine>

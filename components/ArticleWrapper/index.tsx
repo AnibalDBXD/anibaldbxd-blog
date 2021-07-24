@@ -14,6 +14,7 @@ import tagsToString from '../../utils/tagsToString';
 import { japoneseName } from '../../lib/chakra/colors';
 import dateToString from '../../utils/dateToString';
 import StarList from '../StarList';
+import SEO from '../SEO';
 
 interface IProps extends IPost {
   title: ReactNode;
@@ -32,13 +33,24 @@ function ArticleWrapper({
     japoneseName.light, japoneseName.dark,
   );
   const { i18n: { language } } = useTranslation('common');
+
+  const stringTitle = ReactDOMServer.renderToString(title);
+
+  const description = `
+    ${stringTitle}, ${JaponeseName.rich_text[0].plain_text}, ${Stars.number} stars
+  `;
   return (
     <>
       <Head>
         <title>
-          {ReactDOMServer.renderToString(title)}
+          {stringTitle}
           {user.pageTitle}
         </title>
+        <SEO
+          description={description}
+          keywords={tagsToString(Tags)}
+          title={stringTitle}
+        />
       </Head>
       <Box display="flex" flexWrap={{ base: 'wrap', md: 'nowrap' }} marginTop="34px">
         <Box
