@@ -13,16 +13,17 @@
     "@9gustin/react-notion-render": "^2.3.0",
     "@chakra-ui/icons": "^1.0.14",
     "@chakra-ui/react": "^1.6.5",
+    "@chakra-ui/theme-tools": "^1.1.8",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@notionhq/client": "^0.1.8",
     "framer-motion": "^4.1.17",
     "next": "10.2.3",
     "next-i18next": "^8.5.5",
+    "next-sitemap": "^1.6.140",
     "react": "17.x",
     "react-dom": "17.x",
-    "typescript": "^4.3.5",
-    "next-sitemap": "^1.6.140"
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
