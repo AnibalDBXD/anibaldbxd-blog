@@ -2,12 +2,14 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "node": true
+        "node": true,
+        "cypress/globals": true
     },
     "extends": [
         "plugin:react/recommended",
         "airbnb",
-        "next"
+        "next",
+        "plugin:cypress/recommended"
     ],
     "globals": {
         "JSX": true
@@ -22,7 +24,8 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "cypress"
     ],
     "rules": {
         "indent": ["error", 2],
