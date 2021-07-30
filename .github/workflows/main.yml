@@ -14,10 +14,6 @@ jobs:
           cache: 'npm'
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
-      - name: test
-        run: |
-          echo ${{ env.TEST }}
-          echo ${{ secrets.TEST }}
       - name: Create .env file
         run: |
           touch .env
