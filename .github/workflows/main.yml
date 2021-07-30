@@ -15,15 +15,16 @@ jobs:
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
-        env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-          ENGLISH_NOTION_DATABASE_ID: ${{ secrets.ENGLISH_NOTION_DATABASE_ID }}
-          NOTION_MORE_DATABASE: ${{ secrets.NOTION_MORE_DATABASE }}
+        run: |
+          touch .env
+          echo NOTION_TOKEN=${{ secrets.NOTION_TOKEN }} >> .env
+          echo NOTION_DATABASE_ID=${{ secrets.NOTION_DATABASE_ID }} >> .env
+          echo ENGLISH_NOTION_DATABASE_ID=${{ secrets.ENGLISH_NOTION_DATABASE_ID }} >> .env
+          echo NOTION_MORE_DATABASE=${{ secrets.NOTION_MORE_DATABASE }} >> .env
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
           headless: true
-          build: SET NOTION_TOKEN="NOTION_TOKEN"&&SET NOTION_DATABASE_ID="NOTION_DATABASE_ID"&&SET ENGLISH_NOTION_DATABASE_ID="ENGLISH_NOTION_DATABASE_ID"&&SET NOTION_MORE_DATABASE="NOTION_MORE_DATABASE"&&npm run build
+          build: run build
           start: npm start
           wait-on: http://localhost:3000
