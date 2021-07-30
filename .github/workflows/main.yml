@@ -14,6 +14,8 @@ jobs:
           cache: 'npm'
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
+      - name: test
+        run: echo ${{ secrets.TEST }}
       - name: Create .env file
         run: |
           touch .env
@@ -21,7 +23,6 @@ jobs:
           echo NOTION_DATABASE_ID =${{ secrets.NOTION_DATABASE_ID }} >> .env
           echo ENGLISH_NOTION_DATABASE_ID =${{ secrets.ENGLISH_NOTION_DATABASE_ID }} >> .env
           echo NOTION_MORE_DATABASE =${{ secrets.NOTION_MORE_DATABASE }} >> .env
-          echo ${{ secrets.NOTION_TOKEN }}
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
