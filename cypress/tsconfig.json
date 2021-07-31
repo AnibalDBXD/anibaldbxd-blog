@@ -9,7 +9,8 @@
         // be explicit about types included
         // to avoid clashing with Jest types
         "types": [
-            "cypress"
+            "cypress",
+            "@testing-library/cypress",
         ],
         "isolatedModules": false
     },
