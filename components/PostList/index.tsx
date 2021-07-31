@@ -19,7 +19,7 @@ function PostList({ posts }: IProps): JSX.Element {
   return (
     <>
       <FilterPosts posts={posts} setPosts={setPosts} />
-      <VStack alignItems="baseline" marginTop="1rem" spacing="32px">
+      <VStack alignItems="baseline" as="ul" marginTop="1rem" spacing="32px">
         {currentPosts.map((post) => (
           <Post key={post.id} {...post} />
         ))}

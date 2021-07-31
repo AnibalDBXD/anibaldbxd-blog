@@ -41,6 +41,7 @@ function Post({
 
   const childrenElement = (
     <MotionBox
+      as="li"
       display="flex"
       height="160px"
       whileHover={{ translateY: '-5px', translateX: '5px' }}
@@ -87,13 +88,13 @@ function Post({
   }
 
   return (
-    <SlideFade in offsetY="40px">
-      <NextLink href={`/${id}`}>
-        <Link _hover={{ textDecoration: 'none' }}>
+    <NextLink href={`/${id}`} passHref>
+      <Link _focus={{ boxShadow: 'none' }} _hover={{ textDecoration: 'none' }}>
+        <SlideFade in offsetY="40px">
           {childrenElement}
-        </Link>
-      </NextLink>
-    </SlideFade>
+        </SlideFade>
+      </Link>
+    </NextLink>
 
   );
 }
