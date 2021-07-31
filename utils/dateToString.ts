@@ -1,6 +1,10 @@
+import { i18n } from '../next-i18next.config';
+
+const { defaultLocale } = i18n;
+
 const dateToString = (
   date: string | Date,
-  language: string = 'es',
+  language: string = defaultLocale,
   isMonthLong?: boolean,
 ): string =>
   new Date(date).toLocaleString(
