@@ -9,5 +9,7 @@
     "settingsSave": "Save",
     "selectLang": "Select language",
     "movie": "Movie",
-    "toggleThemeLabel": "Change theme mode"
+    "toggleThemeLabel": "Change theme mode",
+    "sunIconLabel": "Light",
+    "moonIconLabel": "Dark"
 }

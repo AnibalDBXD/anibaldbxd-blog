@@ -10,7 +10,8 @@ function ThemeToggler(): JSX.Element {
       aria-label={t('toggleThemeLabel')}
       border="0"
       color={`${colorMode === 'dark' ? 'white' : 'black'}`}
-      icon={colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
+      icon={colorMode === 'light'
+        ? <SunIcon aria-label={t('sunIconLabel')} /> : <MoonIcon aria-label={t('moonIconLabel')} />}
       marginTop="20px"
       onClick={toggleColorMode}
     />
