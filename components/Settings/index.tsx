@@ -72,7 +72,7 @@ function Settings(): JSX.Element {
 
           <DrawerBody>
             <Menu>
-              <MenuButton as={Button} isDisabled={loading} rightIcon={<ChevronDownIcon />}>
+              <MenuButton as={Button} isDisabled={loading} rightIcon={<ChevronDownIcon aria-label="DownIcon" />}>
                 {selectedLanguage || t('selectLang')}
               </MenuButton>
               <MenuList>
