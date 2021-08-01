@@ -48,7 +48,7 @@ function Settings(): JSX.Element {
     <>
       <IconButton
         ref={btnRef}
-        aria-label="Settings"
+        aria-label={t('settingsIconLabel')}
         backgroundColor={buttonsBg}
         bottom="20px"
         colorScheme="whatsapp"

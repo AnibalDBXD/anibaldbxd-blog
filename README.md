@@ -23,6 +23,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 # Run tests
 
-- ``` npm run cypress:open ```
-or
-- ``` npm run cypress:run ```
+1. ``` npm run dev ```
+2. ``` npm run cypress:open ``` or ``` npm run cypress:run ```

@@ -9,7 +9,8 @@
     "settingsSave": "Guardar",
     "selectLang": "Seleccione el idioma",
     "movie": "Películas",
-    "toggleThemeLabel": "Cambiar el color del thema",
+    "toggleThemeLabel": "Cambiar el color del tema",
     "sunIconLabel": "Claro",
-    "moonIconLabel": "Oscuro"
+    "moonIconLabel": "Oscuro",
+    "settingsIconLabel": "Configuración"
 }

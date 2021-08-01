@@ -11,5 +11,6 @@
     "movie": "Movie",
     "toggleThemeLabel": "Change theme mode",
     "sunIconLabel": "Light",
-    "moonIconLabel": "Dark"
+    "moonIconLabel": "Dark",
+    "settingsIconLabel": "Settings"
 }
