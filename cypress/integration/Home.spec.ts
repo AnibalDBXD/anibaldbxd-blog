@@ -22,4 +22,13 @@ describe('Home page', () => {
     cy.findAllByRole('list').findAllByRole('link').first().click();
     cy.url().should('not.equal', `http://localhost:3000${PATHS.home}`);
   });
+
+  it('In home can change theme', () => {
+    // Active dark mode
+    cy.findByLabelText(defaultLang.toggleThemeLabel).click();
+    // Check dark mode icon and click
+    cy.findByLabelText(defaultLang.moonIconLabel).click();
+    // Check light mode icon and click
+    cy.findByLabelText(defaultLang.sunIconLabel).click();
+  });
 });
