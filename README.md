@@ -2,6 +2,8 @@
 
 This is my personal blog about series, anime, videogames, etc...
 
+https://anibaldbxd.cf/
+
 # Tecnologies
 
 - Notion
@@ -18,3 +20,9 @@ This is my personal blog about series, anime, videogames, etc...
 5. ``` npm run dev ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+# Run tests
+
+- ``` npm run cypress:open ```
+or
+- ``` npm run cypress:run ```
