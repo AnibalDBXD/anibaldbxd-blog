@@ -90,7 +90,7 @@ function ArticleWrapper({
           </Box>
         </Box>
         <Box as="article" marginTop="-34px">
-          <section>{children}</section>
+          <article>{children}</article>
         </Box>
       </Box>
 
