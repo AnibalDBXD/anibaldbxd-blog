@@ -1,6 +1,9 @@
 import user from '../../config/user';
 import PATHS from '../../config/paths';
-import { defaultLang } from '../fixtures/language';
+import { defaultLang, langs } from '../fixtures/language';
+import { languages } from '../../next-i18next.config';
+
+const { ENGLISH } = languages;
 
 describe('Home page', () => {
   beforeEach(() => {
@@ -30,5 +33,15 @@ describe('Home page', () => {
     cy.findByLabelText(defaultLang.moonIconLabel).click();
     // Check light mode icon and click
     cy.findByLabelText(defaultLang.sunIconLabel).click();
+  });
+
+  it.only('In home can change language', () => {
+    cy.findByLabelText(defaultLang.settingsIconLabel).click();
+    cy.findByLabelText('DownIcon').click();
+    // Change to english
+    cy.findByText(ENGLISH.long).click();
+    cy.findByText(defaultLang.settingsSave).click();
+
+    cy.findByText(langs[ENGLISH.short].description);
   });
 });
