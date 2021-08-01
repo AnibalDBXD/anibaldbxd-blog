@@ -6,7 +6,7 @@ describe('Home page', () => {
     cy.visit(PATHS.more);
   });
 
-  it.only('More page can be opened', () => {
+  it('More page can be opened', () => {
     // Check page content
     cy.findByText(defaultLang.moreDescription);
   });
