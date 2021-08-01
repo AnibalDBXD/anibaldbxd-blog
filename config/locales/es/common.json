@@ -8,5 +8,6 @@
     "settingsCancel": "Cancelar",
     "settingsSave": "Guardar",
     "selectLang": "Seleccione el idioma",
-    "movie": "Películas"
+    "movie": "Películas",
+    "toggleThemeLabel": "Cambiar el color del thema"
 }

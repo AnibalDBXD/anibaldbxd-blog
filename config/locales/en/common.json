@@ -8,5 +8,6 @@
     "settingsCancel": "Cancel",
     "settingsSave": "Save",
     "selectLang": "Select language",
-    "movie": "Movie"
+    "movie": "Movie",
+    "toggleThemeLabel": "Change theme mode"
 }
