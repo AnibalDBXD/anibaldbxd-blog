@@ -27,6 +27,13 @@ const theme = extendTheme({
       'a, :any-link': {
         color: mode('green.500', primaryColor.dark)(props),
       },
+      /* Change nprogress colors */
+      '#nprogress .bar': {
+        background: primaryColor.dark,
+      },
+      '#nprogress .peg': {
+        boxSshadow: `0 0 10px ${primaryColor.dark}, 0 0 5px ${primaryColor.dark}`,
+      },
     }),
   },
 });
