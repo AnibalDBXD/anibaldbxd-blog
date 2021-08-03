@@ -35,7 +35,7 @@ describe('Home page', () => {
     cy.findByLabelText(defaultLang.sunIconLabel).click();
   });
 
-  it.only('In home can change language', () => {
+  it('In home can change language', () => {
     cy.findByLabelText(defaultLang.settingsIconLabel).click();
     cy.findByLabelText('DownIcon').click();
     // Change to english
