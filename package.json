@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint . --fix",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "test": "start-server-and-test dev http://localhost:3000 cypress:open"
   },
   "dependencies": {
     "@9gustin/react-notion-render": "^2.3.0",
@@ -44,6 +45,7 @@
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "start-server-and-test": "^1.13.1"
   }
 }
