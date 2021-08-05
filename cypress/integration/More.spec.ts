@@ -1,5 +1,7 @@
 import PATHS from '../../config/paths';
 import { defaultLang } from '../fixtures/language';
+// eslint-disable-next-line import/extensions
+import mockPosts from '../fixtures/post.json';
 
 describe('Home page', () => {
   beforeEach(() => {
@@ -18,5 +20,16 @@ describe('Home page', () => {
     cy.findByLabelText(defaultLang.moonIconLabel).click();
     // Check light mode icon and click
     cy.findByLabelText(defaultLang.sunIconLabel).click();
+  });
+
+  it('Can filter posts', () => {
+    const firstPostTag = mockPosts.posts[0].properties.Tags.multi_select[0].name;
+    const postsJaponeseName = mockPosts.posts[0].properties.JaponeseName.rich_text[0].text.content;
+    cy.findByRole('radiogroup').findByLabelText(firstPostTag).click({ force: true });
+    cy.findAllByText(postsJaponeseName).should('have.length', 1);
+  });
+  it('Go back to home', () => {
+    cy.findByLabelText('go back').click();
+    cy.url().should('equal', `http://localhost:3000${PATHS.home}`);
   });
 });
