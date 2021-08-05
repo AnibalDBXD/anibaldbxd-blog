@@ -3,6 +3,7 @@ import { withRouter } from 'next/router';
 
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
+import { useMemo } from 'react';
 import Header from '../Header';
 import PATHS from '../../config/paths';
 import user from '../../config/user';
@@ -18,12 +19,17 @@ function LayoutWrapper({ router, children }): JSX.Element {
   const backgroundColor = useColorModeValue(background.light, background.dark);
   const { t } = useTranslation('common');
 
+  const isHome = useMemo((): boolean =>
+    router.pathname === PATHS.home || router.pathname === PATHS.mockHome,
+  [router.pathname]);
   // Progress bar when change path
   useProgress(router);
 
   const description = {
     [PATHS.home]: t('description'),
+    [PATHS.mockHome]: t('description'),
     [PATHS.more]: t('moreDescription'),
+    [PATHS.mockMore]: t('moreDescription'),
   };
 
   return (
@@ -42,11 +48,11 @@ function LayoutWrapper({ router, children }): JSX.Element {
       >
         <Header
           description={description[router.pathname] || undefined}
-          isHome={router.pathname === PATHS.home}
+          isHome={isHome}
           title={user.title}
         />
         <Box as="main">{children}</Box>
-        {router.pathname === PATHS.home && <Settings />}
+        {isHome && <Settings />}
       </Box>
 
     </>

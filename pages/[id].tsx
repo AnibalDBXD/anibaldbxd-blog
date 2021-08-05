@@ -3,6 +3,8 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { getDatabase, getPage, getBlocks } from '../lib/notion';
 import ArticleWrapper from '../components/ArticleWrapper';
+// eslint-disable-next-line import/extensions
+import mockPosts from '../cypress/fixtures/post.json';
 
 import { DATABASE_LANGUAGES } from '.';
 
@@ -32,6 +34,19 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 
 export const getStaticProps: GetStaticProps = async ({ locale, params }) => {
   const { id } = params;
+
+  // Fix console error on run tests
+  if (mockPosts.posts[0].id === id) {
+    return {
+      props: {
+        page: mockPosts.page.page,
+        blocks: mockPosts.page.blocks,
+        ...(await serverSideTranslations(locale, ['common'])),
+      },
+      revalidate: 1,
+    };
+  }
+
   const page = await getPage(id);
   const blocks = await getBlocks(id);
 

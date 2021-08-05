@@ -2,7 +2,11 @@
 enum PATHS {
   home = '/',
   post = '/[id]',
-  more = '/more'
+  more = '/more',
+  // used in LayoutWrapper
+  mockHome = '/mocks',
+  mockPost = '/mocks/[mockId]',
+  mockMore = '/mocks/more',
 }
 
 export default PATHS;
