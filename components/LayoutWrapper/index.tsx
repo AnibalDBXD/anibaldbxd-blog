@@ -45,6 +45,7 @@ function LayoutWrapper({ router, children }): JSX.Element {
         backgroundColor={backgroundColor}
         minHeight="100vh"
         paddingX="20px"
+        paddingY="20px"
       >
         <Header
           description={description[router.pathname] || undefined}

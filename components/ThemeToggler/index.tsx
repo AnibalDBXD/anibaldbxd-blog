@@ -12,7 +12,6 @@ function ThemeToggler(): JSX.Element {
       color={`${colorMode === 'dark' ? 'white' : 'black'}`}
       icon={colorMode === 'light'
         ? <SunIcon aria-label={t('sunIconLabel')} /> : <MoonIcon aria-label={t('moonIconLabel')} />}
-      marginTop="20px"
       onClick={toggleColorMode}
     />
   );
