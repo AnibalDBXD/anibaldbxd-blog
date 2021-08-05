@@ -1,4 +1,4 @@
-import { HStack, Radio, RadioGroup } from '@chakra-ui/react';
+import { Stack, Radio, RadioGroup } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useMemo, useState } from 'react';
 import { IPost } from '../../interfaces/types';
@@ -29,10 +29,10 @@ const FilterPosts = ({ setPosts, posts }: IFilterPosts): JSX.Element => {
 
   return (
     <RadioGroup marginBottom="3rem" onChange={setRadio} value={radio}>
-      <HStack spacing="20px" textTransform="capitalize">
+      <Stack direction={['column', 'row']} spacing="20px" textTransform="capitalize">
         <Radio value="all">{t('all')}</Radio>
         {tags.map((tag) => <Radio key={tag} value={tag}>{t(tag)}</Radio>)}
-      </HStack>
+      </Stack>
     </RadioGroup>
   );
 };
