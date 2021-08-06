@@ -12,7 +12,7 @@ export default function PostMock({ page, blocks }): JSX.Element {
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: [],
-  fallback: process.env.NODE_ENV === 'production' ? false : 'blocking',
+  fallback: 'blocking',
 });
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
