@@ -52,7 +52,7 @@ describe('Home page', () => {
     cy.findByText(langs[ENGLISH.short].description);
   });
 
-  it.only('Can filter posts', () => {
+  it('Can filter posts', () => {
     const firstPostTag = mockPosts.posts[0].properties.Tags.multi_select[0].name;
     const postsJaponeseName = mockPosts.posts[0].properties.JaponeseName.rich_text[0].text.content;
     cy.findByRole('radiogroup').findByLabelText(firstPostTag).click({ force: true });
