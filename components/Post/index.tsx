@@ -41,7 +41,6 @@ function Post({
 
   const childrenElement = (
     <MotionBox
-      as="li"
       display="flex"
       height="160px"
       whileHover={{ translateY: '-5px', translateX: '5px' }}
