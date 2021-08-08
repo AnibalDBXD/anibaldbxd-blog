@@ -55,6 +55,7 @@ function Post({
         <MyImage
           alt={`${Name.title[0].plain_text} poster`}
           height={160}
+          objectFit="cover"
           src={Image.url}
           width={100}
         />
