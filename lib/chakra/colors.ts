@@ -10,7 +10,7 @@ export const primaryColor: IColor = {
 };
 
 export const japoneseName: IColor = {
-  light: 'gray.500',
+  light: 'gray.600',
   dark: 'gray.300',
 };
 
