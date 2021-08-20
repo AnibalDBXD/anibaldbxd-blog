@@ -9,9 +9,9 @@ import {
   BoxProps,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { renderTitle } from '@9gustin/react-notion-render';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
+import { Render } from '@9gustin/react-notion-render';
 import { IPost } from '../../interfaces/types';
 import MyImage from '../Image';
 import dateToString from '../../utils/dateToString';
@@ -73,7 +73,15 @@ function Post({
         </Text>
       </Box>
       <Box marginLeft="5px" position="relative">
-        <Text as="h3" fontSize={{ sm: '1.3rem', md: '1.2rem', lg: '1.3rem' }} fontWeight="bold" marginTop="-10px" textTransform="capitalize">{renderTitle(Name)}</Text>
+        <Text
+          as="h3"
+          fontSize={{ sm: '1.3rem', md: '1.2rem', lg: '1.3rem' }}
+          fontWeight="bold"
+          marginTop="-10px"
+          textTransform="capitalize"
+        >
+          <Render blocks={[Name]} />
+        </Text>
         <Text color={japoneseNameColor}>{JaponeseName.rich_text[0].plain_text}</Text>
         <Text bottom="0" position="absolute">{dateToString(last_edited_time, language)}</Text>
       </Box>

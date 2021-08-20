@@ -24,7 +24,7 @@ const theme = extendTheme({
           boxShadow: 'inset 7px 10px 12px 0px white.50',
         },
       },
-      'a, :any-link': {
+      '.rnr-container a, .rnr-container :any-link': {
         color: mode('green.500', primaryColor.dark)(props),
       },
       /* Change nprogress colors */
