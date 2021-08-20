@@ -23,9 +23,8 @@ function Header({ title, description }: IProps): JSX.Element {
       as="header"
       flexWrap="wrap"
       justifyContent="space-between"
-      margin="0"
     >
-      <Heading>
+      <Heading margin="0">
         <Link href={PATHS.home} passHref>
           <ChakraLink
             _hover={{
