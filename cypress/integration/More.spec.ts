@@ -1,4 +1,5 @@
 import PATHS from '../../config/paths';
+import user from '../../config/user';
 import { defaultLang } from '../fixtures/language';
 // eslint-disable-next-line import/extensions
 import mockPosts from '../fixtures/post.json';
@@ -29,7 +30,7 @@ describe('Home page', () => {
     cy.findAllByText(postsJaponeseName).should('have.length', 1);
   });
   it('Go back to home', () => {
-    cy.findByLabelText('go back').click();
+    cy.findByText(user.title.toLocaleString()).click();
     cy.url().should('equal', `http://localhost:3000${PATHS.home}`);
   });
 });

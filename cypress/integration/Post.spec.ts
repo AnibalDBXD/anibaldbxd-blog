@@ -1,4 +1,5 @@
 import PATHS from '../../config/paths';
+import user from '../../config/user';
 // eslint-disable-next-line import/extensions
 import mockPosts from '../fixtures/post.json';
 
@@ -16,7 +17,7 @@ describe('Post page', () => {
   });
 
   it('Go back to home', () => {
-    cy.findByLabelText('go back').click();
+    cy.findByText(user.title.toLocaleString()).click();
     cy.url().should('equal', `http://localhost:3000${PATHS.home}`);
   });
 });
