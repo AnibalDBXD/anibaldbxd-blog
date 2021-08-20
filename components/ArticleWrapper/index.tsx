@@ -64,7 +64,7 @@ function ArticleWrapper({
         >
           <Box minWidth="30vh">
             <MyImage
-              alt={`${Name.title[0].plain_text} poster`}
+              alt={`${Name.plain_text} poster`}
               borderRadius="10px"
               height={600}
               src={Image.url}
