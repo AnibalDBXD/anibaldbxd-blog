@@ -14,7 +14,8 @@ export interface IPost {
     id: string;
     last_edited_time: string;
     properties: {
-      Name: Text,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      Name: any,
       Tags: ITag
       Image: {
         url: string
