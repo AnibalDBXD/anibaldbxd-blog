@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-import Title from '@9gustin/react-notion-render/dist/types/Title';
 import Text from '@9gustin/react-notion-render/dist/types/Text';
 
 export interface ITag {
@@ -15,7 +14,7 @@ export interface IPost {
     id: string;
     last_edited_time: string;
     properties: {
-      Name: Title,
+      Name: Text,
       Tags: ITag
       Image: {
         url: string
