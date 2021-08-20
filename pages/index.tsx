@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import { Button, useColorModeValue } from '@chakra-ui/react';
+import { useColorModeValue, Link } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import NextLink from 'next/link';
 import PostList from '../components/PostList';
 import { getDatabase } from '../lib/notion';
 import TextWithLine from '../components/TextWithLine';
@@ -22,7 +22,6 @@ export const DATABASE_LANGUAGES = {
 
 export default function Home({ posts }): JSX.Element {
   const buttonColor = useColorModeValue(primaryColor.light, primaryColor.dark);
-  const { push } = useRouter();
   const { t } = useTranslation('common');
   return (
     <>
@@ -33,16 +32,26 @@ export default function Home({ posts }): JSX.Element {
         {t('publications')}
       </TextWithLine>
       <PostList posts={posts} />
-      <Button
-        borderColor={buttonColor}
-        color={buttonColor}
-        marginTop="2rem"
-        onClick={(): void => { push(PATHS.more); }}
-        rightIcon={<ExternalLinkIcon />}
-        variant="outline"
-      >
-        {t('more')}
-      </Button>
+      <NextLink href={PATHS.more} passHref>
+        <Link
+          _hover={{ textDecoration: 'none' }}
+          alignItems="center"
+          borderColor={buttonColor}
+          borderRadius="0.3rem"
+          borderStyle="solid"
+          borderWidth="1px"
+          color={buttonColor}
+          display="flex"
+          height="10"
+          justifyContent="center"
+          marginTop="2rem"
+          paddingX="4"
+          width="fit-content"
+        >
+          {t('more')}
+          <ExternalLinkIcon marginLeft="0.5rem" />
+        </Link>
+      </NextLink>
     </>
   );
 }
