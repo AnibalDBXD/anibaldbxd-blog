@@ -27,6 +27,9 @@ function Header({ title, description }: IProps): JSX.Element {
       <Heading margin="0">
         <Link href={PATHS.home} passHref>
           <ChakraLink
+            _focus={{
+              boxShadow: 'none',
+            }}
             _hover={{
               color: headingHoverColor,
               textDecoration: 'none',
