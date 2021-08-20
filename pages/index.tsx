@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Box, Button, useColorModeValue } from '@chakra-ui/react';
+import { Button, useColorModeValue } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
@@ -29,22 +29,20 @@ export default function Home({ posts }): JSX.Element {
       <Head>
         <SEO />
       </Head>
-      <Box paddingX="20px">
-        <TextWithLine>
-          {t('publications')}
-        </TextWithLine>
-        <PostList posts={posts} />
-        <Button
-          borderColor={buttonColor}
-          color={buttonColor}
-          marginTop="2rem"
-          onClick={(): void => { push(PATHS.more); }}
-          rightIcon={<ExternalLinkIcon />}
-          variant="outline"
-        >
-          {t('more')}
-        </Button>
-      </Box>
+      <TextWithLine>
+        {t('publications')}
+      </TextWithLine>
+      <PostList posts={posts} />
+      <Button
+        borderColor={buttonColor}
+        color={buttonColor}
+        marginTop="2rem"
+        onClick={(): void => { push(PATHS.more); }}
+        rightIcon={<ExternalLinkIcon />}
+        variant="outline"
+      >
+        {t('more')}
+      </Button>
     </>
   );
 }

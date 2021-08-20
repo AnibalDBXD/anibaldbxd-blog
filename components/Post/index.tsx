@@ -43,6 +43,7 @@ function Post({
     <MotionBox
       display="flex"
       height="160px"
+      marginLeft={haveContent ? 'initial' : '20px'}
       whileHover={{ translateY: '-5px', translateX: '5px' }}
     >
       {!haveContent && (

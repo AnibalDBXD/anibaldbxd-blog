@@ -49,7 +49,6 @@ function LayoutWrapper({ router, children }): JSX.Element {
       >
         <Header
           description={description[router.pathname] || undefined}
-          isHome={isHome}
           title={user.title}
         />
         <Box as="main">{children}</Box>
