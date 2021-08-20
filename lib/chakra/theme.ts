@@ -36,6 +36,9 @@ const theme = extendTheme({
       },
     }),
   },
+  shadows: {
+    outline: '0 0 0 3px rgba(103,210,145,0.6)',
+  },
 });
 
 export default theme;
