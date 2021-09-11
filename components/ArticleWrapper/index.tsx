@@ -4,17 +4,17 @@ import ReactDOMServer from 'react-dom/server';
 
 import { ReactNode } from 'react';
 import {
-  Box, Text, useColorModeValue,
+  Box, Text, useColorModeValue, Tag,
 } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
 import user from '../../config/user';
 import { IPost } from '../../interfaces/types';
 import MyImage from '../Image';
-import tagsToString from '../../utils/tagsToString';
 import { japoneseName } from '../../lib/chakra/colors';
 import dateToString from '../../utils/dateToString';
 import StarList from '../StarList';
 import SEO from '../SEO';
+import tagsToString from '../../utils/tagsToString';
 
 interface IProps extends IPost {
   title: ReactNode;
@@ -83,8 +83,12 @@ function ArticleWrapper({
               {JaponeseName.rich_text[0].plain_text}
             </Text>
             <Box alignItems="center" display="flex" flexWrap="wrap" gridGap="0.5rem" justifyContent="space-between" marginBottom="1rem">
-              <Text color={JaponeseNameColor} fontSize="1.2rem" margin="0" textTransform="capitalize">{tagsToString(Tags)}</Text>
-              <Text color={JaponeseNameColor} fontSize="1.2rem" margin="0">{dateToString(last_edited_time, language, true)}</Text>
+              {Tags.multi_select.map(({ name, id }) => (
+                <Tag key={id} textTransform="capitalize">
+                  {name}
+                </Tag>
+              ))}
+              <Text color={JaponeseNameColor} margin="0">{dateToString(last_edited_time, language, true)}</Text>
             </Box>
             <StarList direction="row" stars={Stars.number} />
           </Box>
