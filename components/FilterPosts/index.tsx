@@ -1,6 +1,7 @@
 import { Stack, Radio, RadioGroup } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
-import { useEffect, useMemo, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useMemo } from 'react';
 import { IPost } from '../../interfaces/types';
 import { filterPostsByTag, getUniqueTagsByPosts } from './utils';
 
@@ -10,9 +11,10 @@ interface IFilterPosts {
 }
 
 const FilterPosts = ({ setPosts, posts }: IFilterPosts): JSX.Element => {
-  const [radio, setRadio] = useState('all');
+  const { push, query } = useRouter();
   const { t } = useTranslation('common');
 
+  const radio = (query.tag as string) || 'all';
   const tags = useMemo(() => getUniqueTagsByPosts(posts), [posts]);
 
   useEffect(() => {
@@ -21,14 +23,20 @@ const FilterPosts = ({ setPosts, posts }: IFilterPosts): JSX.Element => {
     } else {
       setPosts(filterPostsByTag(posts, radio));
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [radio]);
+  }, [posts, radio, setPosts]);
+
   if (tags.length <= 2) {
-    return <div />;
+    return null;
   }
 
   return (
-    <RadioGroup marginBottom="3rem" onChange={setRadio} value={radio}>
+    <RadioGroup
+      marginBottom="3rem"
+      onChange={(tag): void => {
+        push(`/?tag=${tag}`, null, { shallow: true });
+      }}
+      value={radio}
+    >
       <Stack direction={['column', 'row']} spacing="20px" textTransform="capitalize">
         <Radio value="all">{t('all')}</Radio>
         {tags.map((tag) => <Radio key={tag} value={tag}>{t(tag)}</Radio>)}

@@ -14,11 +14,9 @@ interface IProps {
 function PostList({ posts }: IProps): JSX.Element {
   const [currentPosts, setCurrentPosts] = useState(posts);
 
-  const setPosts = (newPosts: IPost[]): void => setCurrentPosts(newPosts);
-
   return (
     <>
-      <FilterPosts posts={posts} setPosts={setPosts} />
+      <FilterPosts posts={posts} setPosts={setCurrentPosts} />
       <VStack alignItems="baseline" as="ul" marginTop="1rem" spacing="32px" style={{ listStyle: 'none ' }}>
         {currentPosts.map((post) => (
           <li key={post.id}>
