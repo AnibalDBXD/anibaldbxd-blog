@@ -36,8 +36,11 @@ function ArticleWrapper({
 
   const stringTitle = ReactDOMServer.renderToString(title);
 
+  const haveStars = Boolean(Stars?.number);
+
+  const starsText = haveStars ? `${Stars.number} stars` : '';
   const description = `
-    ${stringTitle}, ${JaponeseName.rich_text[0].plain_text}, ${Stars.number} stars
+    ${stringTitle}, ${JaponeseName?.rich_text[0]?.plain_text || ''}, ${starsText}
   `;
   return (
     <>
@@ -80,7 +83,7 @@ function ArticleWrapper({
               marginBottom="0.5rem"
               marginTop="0"
             >
-              {JaponeseName.rich_text[0].plain_text}
+              {JaponeseName.rich_text[0]?.plain_text}
             </Text>
             <Box alignItems="center" display="flex" flexWrap="wrap" gridGap="0.5rem" justifyContent="space-between" marginBottom="1rem">
               {Tags.multi_select.map(({ name, id }) => (
@@ -90,7 +93,7 @@ function ArticleWrapper({
               ))}
               <Text color={JaponeseNameColor} margin="0">{dateToString(last_edited_time, language, true)}</Text>
             </Box>
-            <StarList direction="row" stars={Stars.number} />
+            {haveStars && <StarList direction="row" stars={Stars.number} />}
           </Box>
         </Box>
         <Box as="article" marginTop="-34px">

@@ -53,7 +53,7 @@ function Post({
       ) }
       <Box height="160px" minWidth="100px" position="relative">
         <MyImage
-          alt={`${Name.title[0].plain_text} poster`}
+          alt={`${Name.title[0]?.plain_text} poster`}
           height={160}
           objectFit="cover"
           src={Image.url}
@@ -82,7 +82,7 @@ function Post({
         >
           <Render blocks={[Name]} />
         </Text>
-        <Text color={japoneseNameColor}>{JaponeseName.rich_text[0].plain_text}</Text>
+        <Text color={japoneseNameColor}>{JaponeseName.rich_text[0]?.plain_text}</Text>
         <Text bottom="0" position="absolute">{dateToString(last_edited_time, language)}</Text>
       </Box>
     </MotionBox>

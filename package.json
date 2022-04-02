@@ -13,7 +13,7 @@
     "test": "start-server-and-test dev http://localhost:3000 cypress:open"
   },
   "dependencies": {
-    "@9gustin/react-notion-render": "3.x",
+    "@9gustin/react-notion-render": "^3.8.2",
     "@chakra-ui/icons": "^1.0.14",
     "@chakra-ui/react": "^1.6.5",
     "@chakra-ui/theme-tools": "^1.1.8",
