@@ -11,7 +11,16 @@ interface IFilterPosts {
 }
 
 const FilterPosts = ({ setPosts, posts }: IFilterPosts): JSX.Element => {
-  const { push, query } = useRouter();
+  const { push, query, pathname } = useRouter();
+
+  const getUrlToPush = (tag: string): string => {
+    const queryParam = `?tag=${tag}`;
+    if (pathname === '/') {
+      return `/${queryParam}`;
+    }
+    return `${pathname}/${queryParam}`;
+  };
+
   const { t } = useTranslation('common');
 
   const radio = (query.tag as string) || 'all';
@@ -33,7 +42,7 @@ const FilterPosts = ({ setPosts, posts }: IFilterPosts): JSX.Element => {
     <RadioGroup
       marginBottom="3rem"
       onChange={(tag): void => {
-        push(`/?tag=${tag}`, null, { shallow: true });
+        push(getUrlToPush(tag), null, { shallow: true });
       }}
       value={radio}
     >
